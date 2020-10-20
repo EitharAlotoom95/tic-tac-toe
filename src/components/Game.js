@@ -11,6 +11,7 @@ export default class Game extends Component {
         }
         }
         handleClick(i) {
+          
             const squares = this.state.squares.slice();
             if (squares[i] !== null)
             return;
@@ -34,18 +35,23 @@ export default class Game extends Component {
           render() {
             const winner = calculateWinner(this.state.squares);
             let status;
+            let reset;
+            
            
             if (winner) {
               status = 'congrats  ' + winner + '  you are the winner  ' ;
-             
+              reset = this.state = {
+                squares: Array(9).fill(null),
+              }
+              
             } else {
           
               status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
             }
             
-
+            
             return (
-              <div>
+              <div className="centre">
                 <div className="status">{status}</div>
                 <div className="board-row">
                   {this.renderSquare(0)}
@@ -89,4 +95,3 @@ export default class Game extends Component {
           }
 
           
-////////////////////////////////////////////////////////////////
