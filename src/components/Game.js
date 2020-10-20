@@ -42,6 +42,7 @@ export default class Game extends Component {
               status = 'congrats  ' + winner + '  you are the winner  ' ;
               reset = this.state = {
                 squares: Array(9).fill(null),
+                xIsNext: true,
               }
               
             } else {
